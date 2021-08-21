@@ -4,7 +4,7 @@ function Main(props){
     let list = props.video;
 
     return (
-        <div className="row">
+        <div className="row" style={{marginTop:24}}>
             {
                 list.map((a,i)=>{
                     return (
@@ -29,11 +29,11 @@ function Card(props){
                 {list[props.i].title}
                 </div>
             </div>
-            <div className="d-flex">
+            <div className="d-flex mt-1">
                 <div className="circle-youtube"></div>
                 <div>
                     <div className="youtube-title">{list[props.i].title}</div>
-                    <div className="youtube-subtitle">{list[props.i].youtuber}<br/> {list[props.i].view} {list[props.i].created}</div>
+                    <div className="youtube-subtitle" >{list[props.i].youtuber}<br/> {list[props.i].view} {list[props.i].created}</div>
                 </div>
             </div>
         </div>
