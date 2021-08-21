@@ -6,6 +6,8 @@ import Trash from './Trash';
 import {useState,React} from 'react';
 
 
+
+
 function MVPlaylist() {
   let [num, setnum] = useState(0)
   let [activeList,setActiveList] = useState(3);
@@ -88,6 +90,10 @@ function MVPlaylist() {
       
     </div>
   );
+}
+
+function FetchList(){
+  
 }
 
 export default MVPlaylist;
