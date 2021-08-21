@@ -12,7 +12,6 @@ import {useState} from 'react';
 import Login from './components/Login';
 import Main from './components/Main';
 import SetPlayList from './components/SetPlayList';
-import MVPlaylist from './components/MVPlaylist';
 import SearchResult from './components/SearchResult';
 import Play from './components/Play';
 

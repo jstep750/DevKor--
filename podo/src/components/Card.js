@@ -12,14 +12,14 @@ function Card(props){
     }
 
     return (
-        <div 
-            id={props.id}
-            className={props.className}
-            draggable={props.draggable}
-            onDragStart={dragStart}
-            onDragOver={dragOver}>
-            {props.board.id}
-            
+        <div className="row pb-2 mb-2" draggable={props.draggable} onDragStart={dragStart} onDragOver={dragOver} style={{minHeight: 82, borderBottom: '1px solid #c4c4c4'}}>
+            <div className="col-4">
+                <div className="youtube-video" ></div>
+            </div>
+            <div className="col-8 row mt-3">
+                <div className="col-10">{props.board.text}</div>
+                <div className="col-2"><i className="fas fa-edit"></i></div>
+            </div>
         </div>
     )
 }
