@@ -1,6 +1,7 @@
 import '../App.css';
 import Board from './Board';
 import Card from './Card';
+import SmallCard from './SmallCard';
 import Trash from './Trash';
 import {useState,React} from 'react';
 
@@ -79,9 +80,9 @@ function Play(){
                             {
                             boardOne.map((a,i)=>{
                                 return (
-                                    <Card id={a.id} draggable='true' board={a}>
+                                    <SmallCard id={a.id} draggable='true' board={a}>
                                     <p>{a.text}</p>
-                                    </Card>
+                                    </SmallCard>
                                 )
                                 })
                             }
@@ -95,9 +96,9 @@ function Play(){
                             boardTwo={boardTwo} num = {num} setnum = {setnum}>{  
                                 boardTwo.map((a,i)=>{
                                 return (
-                                    <Card id={a.id} className="card" draggable='true' board={a}>
+                                    <SmallCard id={a.id} className="card" draggable='true' board={a}>
                                     <p>{a.text}</p>
-                                    </Card>
+                                    </SmallCard>
                                     )})
                                     }
                                     </Board>
