@@ -13,12 +13,12 @@ function SmallCard(props){
 
     return (
         <div className="row pb-2 mb-2" draggable={props.draggable} onDragStart={dragStart} onDragOver={dragOver} style={{minHeight: 82, borderBottom: '1px solid #c4c4c4'}}>
-            <div className="col-4">
+            <div className="col-6">
                 <div className="youtube-video" ></div>
             </div>
-            <div className="col-8 row mt-3">
-                <div className="col-10">{props.board.text}</div>
-                <div className="col-2"><i className="fas fa-edit"></i></div>
+            <div className="col-6">
+                <div>{props.board.text}</div>
+                
             </div>
         </div>
     )
