@@ -6,6 +6,7 @@ import Logo from './image/Podologo.png';
 import Playlist from './image/playlist.png';
 import Home from './image/Home.png';
 import LoginImg from './image/로그인이미지.png'
+import Categoty from './image/카테고리입력이미지.png'
 import {Link, Route, Switch, useHistory} from 'react-router-dom';
 import {Nav,Container,NavDropdown,Navbar, Form, FormControl,Button} from 'react-bootstrap';
 import {useState} from 'react';
@@ -14,7 +15,7 @@ import Main from './components/Main';
 import SetPlayList from './components/SetPlayList';
 
 function App() {
-  let [ifSetPlaylist,ifSetPlayList변경]=useState(1);
+  let [ifSetPlaylist,ifSetPlayList변경]=useState(0);
   let history = useHistory();
   let [search,setSearch]=useState('');
   let [video,setVideo]=useState([
@@ -35,7 +36,7 @@ function App() {
 
       </div>
     </div>
-    <Form className="d-flex" style={{width: 800}}>
+    <Form className="d-flex" style={{width: 800, maxWidth: '66%'}}>
       <FormControl
         type="search"
         placeholder="Search"
@@ -67,17 +68,22 @@ function App() {
     </Navbar.Collapse>
   </div>
 </Navbar>
-    <div className="container-fluid main-content">
-      <div className="container"style={{height: '100vh'}}>
+    <div className="container-fluid main-content" style={{minHeight: 'calc(100vh - 54px)'}}>
+      
           <Switch>
             <Route exact path="/">
-              <Login></Login>
+              <div className="container">
+                <Login></Login>
+              </div>
             </Route>
             <Route exact path ="/main">
               {
                 ifSetPlaylist===0
                 ? <SetPlayList/>
-                :<Main video={video} setVideo={setVideo}></Main>
+                :<div className="container">
+                    <Main video={video} setVideo={setVideo}></Main>
+                  </div>
+                
                 
               }
             </Route>
@@ -88,7 +94,7 @@ function App() {
 
             </Route>
           </Switch>
-      </div>
+      
     </div>
     
     </div>
