@@ -4,6 +4,10 @@ import { Row } from 'react-bootstrap';
 
 function SearchResult() {
   let history = useHistory();
+  // let [keyWordHighLight,setKeyWord] = useState(this.props.location.state.keyWordHighLight);
+  console.log(this.props.location.state.category);
+  // let [category,setCategory]=useState([this.props.location.state.category]);
+
   let [data, setData] = useState([
     {pic: 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350', 
     name: 'card one', subsc:'123', movie: '123',ins:'blablablablablablablablablablablablablablablabla'},
@@ -42,6 +46,14 @@ function SearchResult() {
   return (
     <div className="App">
       <div>
+        {/* {{
+          category.map((a,i)=>{
+            return (
+              <button className="btn-keyword" style={{backgroundColor:keyWordHighLight===i+1?'#EEEEEE':'#FFFFFF'
+              }} onClick={()=>{history.push("/video?search="+a.text);setButton(2);setKeyWord(i+1)}}>{a.text}</button>
+            )
+          })
+        } } */}
         {
           videoList.map((a,i)=>{
             return(
