@@ -1,15 +1,28 @@
+import { useState } from 'react';
 import Categoty from '../image/노트북추가이미지.png'
 
 
 function SetPlayList(props){
     let 카테고리 = props.category;
     let 카테고리변경 = props.setCategory;
+    let [count,setCount]=useState(0);
     let i = 0;
     let plus카테고리 = () => {
-        i++;
+        setCount(count+1);
         let copy = [...카테고리];
-        copy.push({id: i, text:'test'});
+        copy.push({id: count, text:'test'});
         카테고리변경(copy);
+    }
+    let 카테고리반영=()=>{
+        console.log(count);
+        let copy = [...카테고리];
+        for(let p = 0; p < count; p++){
+            let text = document.getElementById('input-'+p);
+            copy[p].text = text.value;
+            카테고리변경([...copy]); 
+        }
+        props.ifSetPlayList변경(1);
+        alert('카테고리 설정이 끝났습니다, PODO를 잘 이용해주세요!')
     }
     return(
         <div style={{minHeight: 'calc(100vh - 56px)'}}>
@@ -28,7 +41,7 @@ function SetPlayList(props){
                     
             </div>
             <div className="col-lg-3">
-                
+                <button className="btn btn-save-keyword" onClick={카테고리반영}>키워드 저장하기</button>
             </div>
         </div>
         <div className="d-flex" style={{width: '100%'}}>
@@ -38,7 +51,7 @@ function SetPlayList(props){
                                 카테고리.map((a,i)=>{
                                     return(
                                         <div className="col-lg-3 col-md-5 col-sm-6 btn-plus-input d-flex" style={{zIndex:1}}>
-                                            <input className="justify-content-center btn-innerinput" type="text" onkeypress={()=>{this.style.width = ((this.value.length + 1) * 8) + 'px'}} />
+                                            <input id={'input-'+i} className="justify-content-center btn-innerinput" type="text" onkeypress={()=>{this.style.width = ((this.value.length + 1) * 8) + 'px'}} />
                                         </div>
                                     )
                                 })

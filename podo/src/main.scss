@@ -136,7 +136,7 @@
         color: #6E50A2;
         border: 1px solid #6E50A2;
         padding: 10px 20px;
-        background-color: transparent!important;
+        background-color: #fff;
     }
     .btn-plus-input:hover{
         transition: opacity 500ms ease-in-out;
@@ -157,5 +157,54 @@
             background-color: transparent!important;
             border: none;
             color: #6e50a2!important
+        }
+    }
+    .btn-save-keyword{
+        padding: 10px 20px;
+        color: #fff;
+        background-color: #6E50A2;
+        border-radius: 4px;
+    }
+    .btn-save-keyword:hover{
+        color: #fff;
+        transition: opacity 500ms ease-in-out;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.084), 2px 4px 4px rgba(0, 0, 0, 0.168);
+    }
+    .keyword-list{
+        height: 58px;
+        border-top: 1px solid #f2f2f2;
+        border-bottom: 1px solid #f2f2f2;
+        background-color: #fff;
+        padding: 14px 24px;
+    }
+    .keyword-plus{
+        border: 1px solid #6e50a2;
+        color: #6e50a2;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background-color: #f2f2f2;
+    }
+    .keyword-plus:hover{
+        transition: opacity 500ms ease-in-out;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.084), 2px 4px 4px rgba(0, 0, 0, 0.168);
+    }
+    .btn-keyword{
+        height: 30px;
+        padding: 7px 12px;
+        margin-left:10px;
+        margin-right:10px;
+        background-color: #f2f2f2;
+        border: 1px solid #d9d9d9;
+        border-radius: 1rem;
+    }
+    .btn-keyword{
+        input{
+            position: relative;
+            top:-2px;
+            width: 100%;
+            background-color: transparent!important;
+            border: none;
+            color: #030303!important
         }
     }
