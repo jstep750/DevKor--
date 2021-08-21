@@ -1,13 +1,16 @@
 
-import './App.css';
-import Board from './components/Board';
-import Card from './components/Card';
-import Trash from './components/Trash';
+import '../App.css';
+import Board from './Board';
+import Card from './Card';
+import Trash from './Trash';
 import {useState,React} from 'react';
 
 
-function playlist() {
+
+
+function MVPlaylist() {
   let [num, setnum] = useState(0)
+  let [activeList,setActiveList] = useState(3);
   let [board1One, setBoard1One] = useState([
     {id: '1', text: 'card one', videoId:'123', position: 'left'},
     {id: '2', text: 'card two' ,videoId:'123', position: 'left'},
@@ -75,13 +78,22 @@ function playlist() {
         </Board>
         <Trash boardOne={num===0?board1One:num===1?board2One:board3One} setBoardOne={num===0?setBoard1One:num===1?setBoard2One:setBoard3One} boardTwo={num===0?board1Two:num===1?board2Two:board3Two} setBoardTwo={num===0?setBoard1Two:num===1?setBoard2Two:setBoard3Two}>
         </Trash>
-        <button onClick={()=>setnum(0)}>1</button>
-        <button onClick={()=>setnum(1)}>2</button>
-        <button onClick={()=>setnum(2)}>3</button>
+        
+        <div>
+        <button onClick={()=>{activeList>1?setActiveList(activeList-1):setActiveList(1)}}>-</button>
+        {[...Array(activeList)].map((x, i) =>
+          <button onClick={()=>setnum(i)}>{i+1}</button>
+        )}
+        <button onClick={()=>{activeList<10?setActiveList(activeList+1):setActiveList(10)}}>+</button>
+        </div>
       </main>
       
     </div>
   );
 }
 
-export default playlist;
+function FetchList(){
+  
+}
+
+export default MVPlaylist;
