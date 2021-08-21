@@ -56,7 +56,7 @@ function Play(){
                             재생목록.map((a,i)=>{
                                 console.log(a.id);
                                 return (
-                                    <Card id={a.id} draggable='true' board={{text:a.name,id:a.id,videoId:a.videoId,position:'top'}}></Card>
+                                    <Card id={a.id} draggable='true' play={재생목록} func={재생목록변경} board={{text:a.name,id:a.id,videoId:a.videoId,position:'top'}}></Card>
                                 )
                             })
                         }
