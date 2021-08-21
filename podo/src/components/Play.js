@@ -75,7 +75,11 @@ function Play(){
                         <div className="col-6">
                             <p className="mb-3">현재 동영상의 재생목록</p>
                             <div className="playlist-draggable">
-                            <div className="board">
+                            <div className="mt-2">
+                                    <div>현재 유튜브 재생목록</div>
+                                    <hr />
+                                </div>
+                            <div className="board" style={{maxHeight:421,overflowY:'scroll'}}>
                             {
                             boardOne.map((a,i)=>{
                                 return (
@@ -91,7 +95,11 @@ function Play(){
                         <div className="col-6">
                             <p className="mb-3">MY 재생목록 자세히 보기</p>
                             <div className="playlist-draggable">
-                            <Board id='board-2'className="board" setBoardTwo={setBoardTwo} 
+                                <div className="mt-2">
+                                    <div>현재 재생목록</div>
+                                    <hr />
+                                </div>
+                            <Board id='board-2'className="board" setBoardTwo={setBoardTwo}
                             boardTwo={boardTwo} num = {num} setnum = {setnum}>{  
                                 boardTwo.map((a,i)=>{
                                 return (

@@ -49,6 +49,12 @@ body
     overflow-y: scroll;
     width: 100%;
 }
+body::-webkit-scrollbar{
+	display: none;
+}
+div::-webkit-scrollbar{
+	display: none;
+}
 input:focus, textarea:focus, select:focus{
 	outline: none;
 }

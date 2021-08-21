@@ -31,7 +31,7 @@ function Board(props){
         id={props.id}
         onDrop={drop}
         onDragOver={dragOver}
-        style={{minHeight:10}}
+        style={{minHeight:30, maxHeight:421, overflowY:'scroll'}}
         className={props.className}>
             {props.children}
         </div>
