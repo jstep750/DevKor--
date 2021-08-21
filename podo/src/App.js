@@ -20,11 +20,12 @@ function App() {
   let history = useHistory();
   let [search,setSearch]=useState('');
   let [buttonColor,setButton] = useState(0);
+  let [keyWordHighLight,setKeyWord] = useState(0);
+  let [category,setCategory]=useState([]);
   let [video,setVideo]=useState([
     {video: '1',title:'my video',view: 123345, youtuber: '배연준',created:'3 months ago'},
     {video: '2',title:'my video2',view: 1233453, youtuber: '배연준',created:'4 months ago'},
   ]);
-  let [category,setCategory]=useState([]);
   let [중간, 중간변경]=useState([]);
   let 간이버튼 = () =>{
     let copy = [...중간];
@@ -48,7 +49,7 @@ function App() {
 
       </div>
     </div>
-    <Form className="d-flex" style={{width: 800}}>
+    {/* <Form className="d-flex" style={{width: 800}}>
       <FormControl
         type="search"
         placeholder="Search"
@@ -57,7 +58,7 @@ function App() {
         onChange={(e)=>setSearch(e.target.value)}
       />
       <Button variant="outline-success" onClick={()=>{history.push("/video?search="+search);setButton(2)}}>Search</Button>
-    </Form>
+    </Form> */}
           <div className="circle-1"></div>
     <Navbar.Collapse id="basic-navbar-nav" style={{zIndex:3}}>
       <Nav className="me-auto mt-2">
@@ -96,7 +97,14 @@ function App() {
                       {
                         category.map((a,i)=>{
                           return (
-                            <button className="btn-keyword">{a.text}</button>
+                            <button className="btn-keyword" style={{backgroundColor:keyWordHighLight===i+1?'#EEEEEE':'#FFFFFF'
+                            }} onClick={()=>{
+                              console.log(category);
+                              console.log(keyWordHighLight);
+                              setKeyWord(i+1);
+                              setButton(2);
+                              history.push("/video?search="+a.text,{category:{category},keyWordHighLight:{keyWordHighLight}
+                            });}}>{a.text}</button>
                           )
                         })
                       }
@@ -110,15 +118,14 @@ function App() {
                                 중간변경(cop)}} onKeyPress={(e)=>{
                                 if(e.key === 'Enter'){
                                   console.log('enter is pressed')
-                                  //let copy = [...중간];
-                                  //copy[i].text = e.target.value;
-                                  //중간변경([...copy]);
-                                  //console.log(중간[i]);
                                   let finalcopy = [...category];
                                   중간.map((a,i)=>{
                                     finalcopy.push(a);
                                   })
-                                  //finalcopy.push(중간);
+                                  finalcopy.map((a,i)=>{
+                                    finalcopy[i].id = i;
+                                    console.log(finalcopy[i]);
+                                  })
                                   setCategory(finalcopy);
                                   console.log(category);
                                   중간변경([]);
@@ -135,7 +142,7 @@ function App() {
               }
             </Route>
             <Route exact path ="/playlist">
-
+              <Play></Play>
             </Route>
             <Route exact path="/video">
               <SearchResult search={search}></SearchResult>
