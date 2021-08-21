@@ -6,7 +6,6 @@ import Logo from './image/Podologo.png';
 import Playlist from './image/playlist.png';
 import Home from './image/Home.png';
 import LoginImg from './image/로그인이미지.png'
-import Categoty from './image/카테고리입력이미지.png'
 import {Link, Route, Switch, useHistory} from 'react-router-dom';
 import {Nav,Container,NavDropdown,Navbar, Form, FormControl,Button} from 'react-bootstrap';
 import {useState} from 'react';
@@ -18,25 +17,16 @@ import MVPlaylist from './components/MVPlaylist';
 function App() {
   let [ifSetPlaylist,ifSetPlayList변경]=useState(0);
   let history = useHistory();
-  let [category,setCategory]=useState([]);
   let [search,setSearch]=useState('');
   let [buttonColor,setButton] = useState(0);
   let [video,setVideo]=useState([
     {video: '1',title:'my video',view: 123345, youtuber: '배연준',created:'3 months ago'},
     {video: '2',title:'my video2',view: 1233453, youtuber: '배연준',created:'4 months ago'},
   ])
-  let [중간, 중간변경]=useState([]);
-  let 간이버튼 = () =>{
-    let copy = [...중간];
-    copy.push({text: 'type category'});
-    중간변경([...copy]);
-  }
-  let 간이가정식으로=()=>{
 
-  }
 
   return (
-    <div className="App">
+    <div classNameNameName="App">
       <Navbar expand="">
   <div className="container-fluid ms-2 me-2 d-flex justify-content-between">
     <div className="d-flex">
@@ -47,7 +37,7 @@ function App() {
 
       </div>
     </div>
-    <Form className="d-flex" style={{width: 800, maxWidth: '66%'}}>
+    <Form className="d-flex" style={{width: 800}}>
       <FormControl
         type="search"
         placeholder="Search"
@@ -79,60 +69,17 @@ function App() {
     </Navbar.Collapse>
   </div>
 </Navbar>
-    <div className="container-fluid main-content" style={{minHeight: '100vh',padding: 0}}>
-      
+    <div className="container-fluid main-content">
+      <div className="container"style={{height: '100vh'}}>
           <Switch>
             <Route exact path="/">
-              <div className="container">
-                <Login></Login>
-              </div>
+              <Login></Login>
             </Route>
             <Route exact path ="/main">
               {
                 ifSetPlaylist===0
-                ? <SetPlayList category={category} setCategory={setCategory} ifSetPlayList변경={ifSetPlayList변경}/>
-                :<>
-                    <div className="keyword-list d-flex">
-                      <button className="keyword-plus" onClick={간이버튼}><i class="fas fa-plus"></i></button>
-                      {
-                        category.map((a,i)=>{
-                          return (
-                            <button className="btn-keyword">{a.text}</button>
-                          )
-                        })
-                      }
-                      {
-                        중간.map((a,i)=>{
-                          return(
-                            <div className="btn-keyword">
-                              <input type="text" onChange={(e)=>{
-                                let cop = [...중간];
-                                cop[i] = {id:i,text:e.target.value};
-                                중간변경(cop)}} onKeyPress={(e)=>{
-                                if(e.key === 'Enter'){
-                                  console.log('enter is pressed')
-                                  //let copy = [...중간];
-                                  //copy[i].text = e.target.value;
-                                  //중간변경([...copy]);
-                                  //console.log(중간[i]);
-                                  let finalcopy = [...category];
-                                  중간.map((a,i)=>{
-                                    finalcopy.push(a);
-                                  })
-                                  //finalcopy.push(중간);
-                                  setCategory(finalcopy);
-                                  console.log(category);
-                                  중간변경([]);
-
-                                }}} />
-                            </div>
-                          )
-                        })
-                      }
-                    </div>
-                    <Main video={video} setVideo={setVideo} category={category} setCategory={setCategory}></Main>
-                  </>
-                
+                ? <SearchResult/>
+                :<Main video={video} setVideo={setVideo}></Main>
                 
               }
             </Route>
@@ -143,7 +90,7 @@ function App() {
 
             </Route>
           </Switch>
-      
+      </div>
     </div>
     
     </div>

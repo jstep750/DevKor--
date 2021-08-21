@@ -37,12 +37,3 @@ function SearchResult() {
 }
 
 export default SearchResult;
-
-// row
-// display flex
-
-// flex row
-
-// flex-row-reverse
-
-// justify contnet center
