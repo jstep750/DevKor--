@@ -12,7 +12,6 @@ import {useState} from 'react';
 import Login from './components/Login';
 import Main from './components/Main';
 import SetPlayList from './components/SetPlayList';
-import MVPlaylist from './components/MVPlaylist';
 import SearchResult from './components/SearchResult';
 import Play from './components/Play';
 
@@ -24,11 +23,21 @@ function App() {
   let [video,setVideo]=useState([
     {video: '1',title:'my video',view: 123345, youtuber: '배연준',created:'3 months ago'},
     {video: '2',title:'my video2',view: 1233453, youtuber: '배연준',created:'4 months ago'},
-  ])
+  ]);
+  let [category,setCategory]=useState([]);
+  let [중간, 중간변경]=useState([]);
+  let 간이버튼 = () =>{
+    let copy = [...중간];
+    copy.push({text: 'type category'});
+    중간변경([...copy]);
+  }
+  let 간이가정식으로=()=>{
+
+  }
 
 
   return (
-    <div classNameNameName="App">
+    <div className="App">
       <Navbar expand="">
   <div className="container-fluid ms-2 me-2 d-flex justify-content-between">
     <div className="d-flex">
@@ -80,8 +89,48 @@ function App() {
             <Route exact path ="/main">
               {
                 ifSetPlaylist===0
-                ? <SearchResult/>
-                :<Main video={video} setVideo={setVideo}></Main>
+                ? <SetPlayList category={category} setCategory={setCategory} ifSetPlayList변경={ifSetPlayList변경}/>
+                :<>
+                    <div className="keyword-list d-flex">
+                      <button className="keyword-plus" onClick={간이버튼}><i class="fas fa-plus"></i></button>
+                      {
+                        category.map((a,i)=>{
+                          return (
+                            <button className="btn-keyword">{a.text}</button>
+                          )
+                        })
+                      }
+                      {
+                        중간.map((a,i)=>{
+                          return(
+                            <div className="btn-keyword">
+                              <input type="text" onChange={(e)=>{
+                                let cop = [...중간];
+                                cop[i] = {id:i,text:e.target.value};
+                                중간변경(cop)}} onKeyPress={(e)=>{
+                                if(e.key === 'Enter'){
+                                  console.log('enter is pressed')
+                                  //let copy = [...중간];
+                                  //copy[i].text = e.target.value;
+                                  //중간변경([...copy]);
+                                  //console.log(중간[i]);
+                                  let finalcopy = [...category];
+                                  중간.map((a,i)=>{
+                                    finalcopy.push(a);
+                                  })
+                                  //finalcopy.push(중간);
+                                  setCategory(finalcopy);
+                                  console.log(category);
+                                  중간변경([]);
+
+                                }}} />
+                            </div>
+                          )
+                        })
+                      }
+                    </div>
+                    <Main video={video} setVideo={setVideo} category={category} setCategory={setCategory}></Main>
+                  </>
                 
               }
             </Route>

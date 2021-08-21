@@ -12,14 +12,22 @@ function Card(props){
     }
 
     return (
-        <div 
-            id={props.id}
-            className={props.className}
-            draggable={props.draggable}
-            onDragStart={dragStart}
-            onDragOver={dragOver}>
-            {props.board.id}
-            
+        <div className="row pb-2 mb-2" draggable={props.draggable} onDragStart={dragStart} onDragOver={dragOver} style={{minHeight: 82, borderBottom: '1px solid #c4c4c4'}}>
+            <div className="col-4">
+                <div className="youtube-video" style={{backgroundColor:'#BE9FE1',borderRadius: 5,position:'relative'}}>
+                    <div className="youtube-arrow"><i style={{fontSize:24,color: 'white'}} class="fas fa-caret-right"></i></div>
+                </div>
+            </div>
+            <div className="col-8 row mt-3">
+                <div className="col-10">{props.board.text}</div>
+                <div className="col-2"><i className="fas fa-edit" onClick={()=>{
+                  let 이름 = prompt('바꿀 재생목록 이름을 입력해주세요');
+                  if(이름 !== null){
+                  let copy = [...props.play];
+                  copy[props.board.id] = {id: props.board.id, name: 이름, videoid:copy[props.board.id].videoid};
+                  props.func([...copy])  
+                }}}></i></div>
+            </div>
         </div>
     )
 }

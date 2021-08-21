@@ -9,15 +9,9 @@ function Board(props){
         const card_text = e.dataTransfer.getData('card_text')
         const card_position = e.dataTransfer.getData('card_position')
         if(card_position === 'top'){
-            console.log('top detected');
-            console.log(card_id);
-            console.log(props.num);
             props.setnum(parseInt(card_id));
         }
-        else if (card_position === 'right'){
-            console.log('push skipped');
-        }
-        else{
+        else if (card_position !== 'right'){
             let copy = [...props.boardTwo];
             copy = copy.filter((item)=>{
                 return item.id !== card_id
@@ -28,8 +22,6 @@ function Board(props){
         }
     }
 
-    
-
     const dragOver = e =>{
         e.preventDefault();
     }
@@ -39,6 +31,7 @@ function Board(props){
         id={props.id}
         onDrop={drop}
         onDragOver={dragOver}
+        style={{minHeight:10}}
         className={props.className}>
             {props.children}
         </div>
