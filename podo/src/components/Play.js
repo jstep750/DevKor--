@@ -96,7 +96,7 @@ function Play(){
                             <p className="mb-3">MY 재생목록 자세히 보기</p>
                             <div className="playlist-draggable">
                                 <div className="mt-2">
-                                    <div>현재 재생목록</div>
+                                    <div>{재생목록[num].name}</div>
                                     <hr />
                                 </div>
                             <Board id='board-2'className="board" setBoardTwo={setBoardTwo}
