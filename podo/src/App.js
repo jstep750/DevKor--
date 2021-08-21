@@ -12,14 +12,22 @@ import {useState} from 'react';
 import Login from './components/Login';
 
 function App() {
+  let history = useHistory();
+  let [search,setSearch]=useState('');
+
+
+
   return (
     <div classNameNameName="App">
       <Navbar expand="">
   <div className="container-fluid ms-2 me-2 d-flex justify-content-between">
     <div className="d-flex">
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-4" />
+      <div className="d-flex" style={{cursor:'pointer'}} onClick={()=>{history.push("/main")}}>
       <img src={Logo}className="me-2 mt-1"  alt=""  style={{height:32}}/>
       <div className="noto" style={{fontSize: 25, marginTop:6, color: '#030303'}}>PODO</div>
+
+      </div>
     </div>
     <Form className="d-flex" style={{width: 800}}>
       <FormControl
@@ -27,8 +35,9 @@ function App() {
         placeholder="Search"
         className="mr-2"
         aria-label="Search"
+        onChange={(e)=>setSearch(e.target.value)}
       />
-      <Button variant="outline-success">Search</Button>
+      <Button variant="outline-success" onClick={()=>{history.push("/search/"+search)}}>Search</Button>
     </Form>
           <div className="circle-1"></div>
     <Navbar.Collapse id="basic-navbar-nav">
