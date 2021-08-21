@@ -14,9 +14,10 @@ import Main from './components/Main';
 import SetPlayList from './components/SetPlayList';
 
 function App() {
-  let [ifSetPlaylist,ifSetPlayList변경]=useState(1);
+  let [ifSetPlaylist,ifSetPlayList변경]=useState(0);
   let history = useHistory();
   let [search,setSearch]=useState('');
+  let [buttonColor,setButton] = useState(0);
   let [video,setVideo]=useState([
     {video: '1',title:'my video',view: 123345, youtuber: '배연준',created:'3 months ago'},
     {video: '2',title:'my video2',view: 1233453, youtuber: '배연준',created:'4 months ago'},
@@ -29,7 +30,7 @@ function App() {
   <div className="container-fluid ms-2 me-2 d-flex justify-content-between">
     <div className="d-flex">
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-4" />
-      <div className="d-flex" style={{cursor:'pointer'}} onClick={()=>{history.push("/main")}}>
+      <div className="d-flex" style={{cursor:'pointer'}} onClick={()=>{history.push("/main");setButton(0);}}>
       <img src={Logo}className="me-2 mt-1"  alt=""  style={{height:32}}/>
       <div className="noto" style={{fontSize: 25, marginTop:6, color: '#030303'}}>PODO</div>
 
@@ -43,20 +44,20 @@ function App() {
         aria-label="Search"
         onChange={(e)=>setSearch(e.target.value)}
       />
-      <Button variant="outline-success" onClick={()=>{history.push("/search/"+search)}}>Search</Button>
+      <Button variant="outline-success" onClick={()=>{history.push("/search/"+search);setButton(2)}}>Search</Button>
     </Form>
           <div className="circle-1"></div>
     <Navbar.Collapse id="basic-navbar-nav" style={{zIndex:3}}>
       <Nav className="me-auto mt-2">
-        <Nav className="nav-left-link row">
-          <Link to="/main" className="nav-left-link row">
+        <Nav className="nav-left-link row" >
+          <Link to="/main" onClick={()=>{setButton(0)}} className="nav-left-link row" style={{backgroundColor:buttonColor===0?'#EEEEEE':'#FFFFFF'}}>
           <div className="col-3" style={{height: '100%' , display:'flex',alignItems:'center'}}><img className="nav-left-logo" src={Home} alt="" /></div>
           <div className="col-9" style={{height: '100%', display:'flex',alignItems:'center'}}><span style={{fontWeight:700, fontSize:16}}>Home</span></div>
           </Link>
           
           </Nav>
           <Nav className="nav-left-link row mt-2">
-            <Link to="/playlist" className="nav-left-link row">
+            <Link to="/playlist" onClick={()=>{setButton(1)}} className="nav-left-link row" style={{backgroundColor:buttonColor===1?'#EEEEEE':'#FFFFFF'}}>
               <div className="col-3" style={{height: '100%' , display:'flex',alignItems:'center'}}><img className="nav-left-logo" src={Playlist} alt="" /></div>
               <div className="col-9" style={{height: '100%', display:'flex',alignItems:'center'}}><span style={{fontWeight:700, fontSize:16}}>Playlist</span></div>
             </Link>
