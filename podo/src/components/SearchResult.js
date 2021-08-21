@@ -57,6 +57,7 @@ function SearchResult() {
 function Card(props){
   let history = useHistory();
   let 비디오 = props.video;
+  console.log(비디오);
   return (
     <div className="row pt-3">
       <hr />
@@ -74,8 +75,8 @@ function Card(props){
                 <div className="d-flex">
                     <div style={{height: 200, width : 300, backgroundColor: 'gray', marginRight: 16}}>여기 네모</div>
                     <div style={{textAlign: 'left'}}>
-                        <div className="mb-2" style={{fontSize:18,color: '#030303'}} onClick={()=>{history.push('/video/'+props.video.id)}}>{props.video.title}</div>
-                        <div className="youtube-subdes mb-3" style={{fontWeight:700}}>{비디오.num_views}, {비디오.release_date}</div>
+                        <div className="mb-2" style={{fontSize:18,color: '#030303'}} onClick={()=>{history.push('/video/'+비디오.items[props.i].title)}}>{비디오.items[props.i].title}</div>
+                        <div className="youtube-subdes mb-3" style={{fontWeight:700}}>{비디오.items[props.i].num_views}, {비디오.items[props.i].release_date}</div>
                         <div className="youtube-subdes mb-3 d-flex justify-content-start align-items-center"><div className="circle-1 me-3"></div> {비디오.channel}</div>
                         <div className="youtube-subdes mb-2">영상 설명</div>
                         <div className="youtube-subdes">만약 이 영상이 플레이리스트에 있으면 여기 뜸</div>
