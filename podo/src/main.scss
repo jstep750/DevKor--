@@ -9,6 +9,7 @@
         padding-bottom: 15px;
         width: 240px;
         height: 100%;
+        background-color: #fff;
     }
 
     .navbar-collapse.collapsing {
@@ -19,11 +20,46 @@
     .navbar-collapse.show {
         left: 0;
         transition: left 300ms ease-in-out;
+
     }
 
     .navbar-toggler.collapsed ~ .navbar-collapse {
         transition: left 500ms ease-in-out;
+        
     }
     .navbar-toggler{
         border: none;
     }
+    .container-fluid.main-content{
+        background-color: #f9f9f9;
+    }
+    .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+   
+        flex-wrap: inherit;
+        align-items: center;
+        flex-shrink: 0;
+        justify-content: flex-start;
+        // justify-content: space-between;
+    }
+    .navbar-top-width{
+        width: calc(100% - 170px);
+    }
+    .circle-1{
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #999999;
+    }
+    .nav-left-link{
+        font-family: 'Roboto', sans-serif;
+        height: 40px;
+        padding-left: 26px;
+        vertical-align: middle;
+        display: flex;
+        align-items: center;
+    }
+    .nav-left-logo{
+        height: 23px;
+        
+    }
+    
