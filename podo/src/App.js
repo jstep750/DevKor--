@@ -10,9 +10,11 @@ import {Link, Route, Switch, useHistory} from 'react-router-dom';
 import {Nav,Container,NavDropdown,Navbar, Form, FormControl,Button} from 'react-bootstrap';
 import {useState} from 'react';
 import Login from './components/Login';
-import Main from './components/Main'
+import Main from './components/Main';
+import SetPlayList from './components/SetPlayList';
 
 function App() {
+  let [ifSetPlaylist,ifSetPlayList변경]=useState(1);
   let history = useHistory();
   let [search,setSearch]=useState('');
   let [video,setVideo]=useState([
@@ -44,7 +46,7 @@ function App() {
       <Button variant="outline-success" onClick={()=>{history.push("/search/"+search)}}>Search</Button>
     </Form>
           <div className="circle-1"></div>
-    <Navbar.Collapse id="basic-navbar-nav">
+    <Navbar.Collapse id="basic-navbar-nav" style={{zIndex:3}}>
       <Nav className="me-auto mt-2">
         <Nav className="nav-left-link row">
           <Link to="/main" className="nav-left-link row">
@@ -72,7 +74,12 @@ function App() {
               <Login></Login>
             </Route>
             <Route exact path ="/main">
-              <Main video={video} setVideo={setVideo}></Main>
+              {
+                ifSetPlaylist===0
+                ? <SetPlayList/>
+                :<Main video={video} setVideo={setVideo}></Main>
+                
+              }
             </Route>
             <Route exact path ="/playlist">
 
