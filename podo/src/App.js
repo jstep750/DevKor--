@@ -13,6 +13,8 @@ import Login from './components/Login';
 import Main from './components/Main';
 import SetPlayList from './components/SetPlayList';
 import MVPlaylist from './components/MVPlaylist';
+import SearchResult from './components/SearchResult';
+import Play from './components/Play';
 
 function App() {
   let [ifSetPlaylist,ifSetPlayList변경]=useState(0);
@@ -45,7 +47,7 @@ function App() {
         aria-label="Search"
         onChange={(e)=>setSearch(e.target.value)}
       />
-      <Button variant="outline-success" onClick={()=>{history.push("/search/"+search);setButton(2)}}>Search</Button>
+      <Button variant="outline-success" onClick={()=>{history.push("/video?search="+search);setButton(2)}}>Search</Button>
     </Form>
           <div className="circle-1"></div>
     <Navbar.Collapse id="basic-navbar-nav" style={{zIndex:3}}>
@@ -86,8 +88,15 @@ function App() {
             <Route exact path ="/playlist">
 
             </Route>
+            <Route exact path="/video">
+              <SearchResult search={search}></SearchResult>
+            </Route>
             <Route exact path = "/mypage">
 
+            </Route>
+            <Route exact path = "/video/:id">
+            {/* getVideoId = {getVideoId} */}
+              <Play></Play>
             </Route>
           </Switch>
       </div>
