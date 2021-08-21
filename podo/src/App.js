@@ -8,7 +8,7 @@ import Home from './image/Home.png';
 import LoginImg from './image/로그인이미지.png'
 import {Link, Route, Switch, useHistory} from 'react-router-dom';
 import {Nav,Container,NavDropdown,Navbar, Form, FormControl,Button} from 'react-bootstrap';
-import {useHistory, useState} from 'react';
+import {useState} from 'react';
 import Login from './components/Login';
 
 function App() {
@@ -34,12 +34,18 @@ function App() {
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto mt-2">
         <Nav className="nav-left-link row">
+          <Link to="/main" className="nav-left-link row">
           <div className="col-3" style={{height: '100%' , display:'flex',alignItems:'center'}}><img className="nav-left-logo" src={Home} alt="" /></div>
           <div className="col-9" style={{height: '100%', display:'flex',alignItems:'center'}}><span style={{fontWeight:700, fontSize:16}}>Home</span></div>
+          </Link>
+          
           </Nav>
           <Nav className="nav-left-link row mt-2">
-          <div className="col-3" style={{height: '100%' , display:'flex',alignItems:'center'}}><img className="nav-left-logo" src={Playlist} alt="" /></div>
-          <div className="col-9" style={{height: '100%', display:'flex',alignItems:'center'}}><span style={{fontWeight:700, fontSize:16}}>Playlist</span></div>
+            <Link to="/playlist" className="nav-left-link row">
+              <div className="col-3" style={{height: '100%' , display:'flex',alignItems:'center'}}><img className="nav-left-logo" src={Playlist} alt="" /></div>
+              <div className="col-9" style={{height: '100%', display:'flex',alignItems:'center'}}><span style={{fontWeight:700, fontSize:16}}>Playlist</span></div>
+            </Link>
+          
           </Nav>
         
       </Nav>
