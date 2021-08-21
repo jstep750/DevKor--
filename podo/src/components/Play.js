@@ -20,7 +20,6 @@ function Play(){
         {id: '4', text: 'card four' ,videoId:'123', position: 'right'},
         {id: '5', text: 'card five', videoId:'123', position: 'right'},
         {id: '6', text: 'card six', videoId:'123', position: 'right'},
-        {id: '4', text: 'card four' ,videoId:'123', position: 'right'},
     ])
     let [board2Two, setBoard2Two] = useState([])
     let [board3Two, setBoard3Two] = useState([])
@@ -35,7 +34,7 @@ function Play(){
     let boardTwo = num===0?board1Two:num===1?board2Two:num===2?board3Two:num===3?board4Two:num===4?board5Two:num===5?board6Two:num===6?board7Two:num===7?board8Two:num===8?board9Two:board10Two;
     let setBoardTwo = num===0?setBoard1Two:num===1?setBoard2Two:num===2?setBoard3Two:num===3?setBoard4Two:num===4?setBoard5Two:num===5?setBoard6Two:num===6?setBoard7Two:num===7?setBoard8Two:num===8?setBoard9Two:setBoard10Two;
 
-    let [재생목록, 재생목록변경]=useState([
+    let [재생목록, 재생목록변경]=useState([// videoid depricated use state 사용 불가 
         {id: 0, name: '재생목록1',videoid:[123,456,789]},
         {id: 1, name: '재생목록2',videoid:[1231,4564,7897]},
     ])
