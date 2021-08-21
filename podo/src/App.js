@@ -14,6 +14,8 @@ import Login from './components/Login';
 import Main from './components/Main';
 import SetPlayList from './components/SetPlayList';
 import MVPlaylist from './components/MVPlaylist';
+import SearchResult from './components/SearchResult';
+import Play from './components/Play';
 
 function App() {
   let [ifSetPlaylist,ifSetPlayList변경]=useState(0);
@@ -139,8 +141,15 @@ function App() {
             <Route exact path ="/playlist">
 
             </Route>
+            <Route exact path="/search/:id">
+              <SearchResult search={search}></SearchResult>
+            </Route>
             <Route exact path = "/mypage">
 
+            </Route>
+            <Route exact path = "/video/:id">
+            {/* getVideoId = {getVideoId} */}
+              <Play></Play>
             </Route>
           </Switch>
       
