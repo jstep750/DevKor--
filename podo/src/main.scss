@@ -80,3 +80,33 @@
         background-color: #f4f4f4;
         transition: opacity 500ms ease-in-out;
     }
+    .img-fit-nine-to-five{
+        width: 100%;
+        object-fit: cover;
+        position: relative;
+        padding-top: 55.56%;
+    }
+    .img-fit-to-ratio{
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        right: 0; 
+        bottom: 0; 
+        max-width: 100%; 
+        height: auto;
+
+    }
+    .circle-youtube{
+        height: 36px;
+        width: 36px;
+        border-radius: 50%;
+        background-color: #666666;
+    }
+    .youtube-title{
+        color: #030303;
+        font-size: 14px;
+    }
+    .youtube-subtitle{
+        color: #606060;
+        font-size: 14px;
+    }

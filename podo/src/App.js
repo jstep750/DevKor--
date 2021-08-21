@@ -10,11 +10,15 @@ import {Link, Route, Switch, useHistory} from 'react-router-dom';
 import {Nav,Container,NavDropdown,Navbar, Form, FormControl,Button} from 'react-bootstrap';
 import {useState} from 'react';
 import Login from './components/Login';
+import Main from './components/Main'
 
 function App() {
   let history = useHistory();
   let [search,setSearch]=useState('');
-
+  let [video,setVideo]=useState([
+    {video: '1',title:'my video',view: 123345, youtuber: '배연준',created:'3 months ago'},
+    {video: '2',title:'my video2',view: 1233453, youtuber: '배연준',created:'4 months ago'},
+  ])
 
 
   return (
@@ -64,11 +68,11 @@ function App() {
     <div className="container-fluid main-content">
       <div className="container"style={{height: '100vh'}}>
           <Switch>
-            <Route path="/">
+            <Route exact path="/">
               <Login></Login>
             </Route>
             <Route exact path ="/main">
-
+              <Main video={video} setVideo={setVideo}></Main>
             </Route>
             <Route exact path ="/playlist">
 
