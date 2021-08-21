@@ -14,7 +14,6 @@ function SearchResult() {
   let 아이디 = 임시id[0].id
   return (
     <div className="App">
-          
       <div>
         <div className="row pt-3">
             <div className="col-4" style={{textAlign: 'center'}}>
@@ -41,7 +40,6 @@ function SearchResult() {
             </div>
         </div>
         </div>
-      
     </div>
   );
 }

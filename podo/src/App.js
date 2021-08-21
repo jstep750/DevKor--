@@ -57,7 +57,7 @@ function App() {
         aria-label="Search"
         onChange={(e)=>setSearch(e.target.value)}
       />
-      <Button variant="outline-success" onClick={()=>{history.push("/search/"+search);setButton(2)}}>Search</Button>
+      <Button variant="outline-success" onClick={()=>{history.push("/video?search="+search);setButton(2)}}>Search</Button>
     </Form>
           <div className="circle-1"></div>
     <Navbar.Collapse id="basic-navbar-nav" style={{zIndex:3}}>
@@ -141,7 +141,7 @@ function App() {
             <Route exact path ="/playlist">
 
             </Route>
-            <Route exact path="/search/:id">
+            <Route exact path="/video">
               <SearchResult search={search}></SearchResult>
             </Route>
             <Route exact path = "/mypage">
