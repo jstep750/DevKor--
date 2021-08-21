@@ -142,7 +142,7 @@ function App() {
               }
             </Route>
             <Route exact path ="/playlist">
-
+              <Play></Play>
             </Route>
             <Route exact path="/video">
               <SearchResult search={search}></SearchResult>
