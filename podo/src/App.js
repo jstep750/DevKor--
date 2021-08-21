@@ -20,6 +20,7 @@ function App() {
   let history = useHistory();
   let [search,setSearch]=useState('');
   let [buttonColor,setButton] = useState(0);
+  let [keyWordHighLight,setKeyWord] = useState(0);
   let [video,setVideo]=useState([
     {video: '1',title:'my video',view: 123345, youtuber: '배연준',created:'3 months ago'},
     {video: '2',title:'my video2',view: 1233453, youtuber: '배연준',created:'4 months ago'},
@@ -48,7 +49,7 @@ function App() {
 
       </div>
     </div>
-    <Form className="d-flex" style={{width: 800}}>
+    {/* <Form className="d-flex" style={{width: 800}}>
       <FormControl
         type="search"
         placeholder="Search"
@@ -57,7 +58,7 @@ function App() {
         onChange={(e)=>setSearch(e.target.value)}
       />
       <Button variant="outline-success" onClick={()=>{history.push("/video?search="+search);setButton(2)}}>Search</Button>
-    </Form>
+    </Form> */}
           <div className="circle-1"></div>
     <Navbar.Collapse id="basic-navbar-nav" style={{zIndex:3}}>
       <Nav className="me-auto mt-2">
@@ -96,7 +97,8 @@ function App() {
                       {
                         category.map((a,i)=>{
                           return (
-                            <button className="btn-keyword">{a.text}</button>
+                            <button className="btn-keyword" style={{backgroundColor:keyWordHighLight===i+1?'#FFFFFF':'#000000'
+                            }} onClick={()=>{history.push("/video?search="+a.text);setButton(2);setKeyWord(i+1)}}>{a.text}</button>
                           )
                         })
                       }
