@@ -229,3 +229,9 @@
         font-size: 12px;
         color: #606060;
     }
+    .youtube-arrow{
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }

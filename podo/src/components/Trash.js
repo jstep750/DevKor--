@@ -21,7 +21,9 @@ function Trash(props){
         <div
         onDrop={drop}
         onDragOver={dragOver}
-        >Trash here</div>
+        style={{height: 100,backgroundColor:'#999999'}}
+        className="d-flex align-items-center justify-content-center"
+        ><i class="far fa-trash-alt me-3"></i>Trash here!</div>
     )
 }
 
