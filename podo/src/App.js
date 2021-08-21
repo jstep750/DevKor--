@@ -72,7 +72,7 @@ function App() {
   </div>
 </Navbar>
     <div className="container-fluid main-content">
-      <div className="container"style={{height: '100vh'}}>
+      <div className="container"style={{minHeight: '100vh'}}>
           <Switch>
             <Route exact path="/">
               <Login></Login>
