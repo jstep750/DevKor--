@@ -6,7 +6,7 @@ import Trash from './components/Trash';
 import {useState,React} from 'react';
 
 
-function App() {
+function playlist() {
   let [num, setnum] = useState(0)
   let [board1One, setBoard1One] = useState([
     {id: '1', text: 'card one', videoId:'123', position: 'left'},
