@@ -17,6 +17,7 @@ import SetPlayList from './components/SetPlayList';
 function App() {
   let [ifSetPlaylist,ifSetPlayList변경]=useState(0);
   let history = useHistory();
+  let [category,setCategory]=useState([]);
   let [search,setSearch]=useState('');
   let [video,setVideo]=useState([
     {video: '1',title:'my video',view: 123345, youtuber: '배연준',created:'3 months ago'},
@@ -79,7 +80,7 @@ function App() {
             <Route exact path ="/main">
               {
                 ifSetPlaylist===0
-                ? <SetPlayList/>
+                ? <SetPlayList category={category} setCategory={setCategory}/>
                 :<div className="container">
                     <Main video={video} setVideo={setVideo}></Main>
                   </div>
