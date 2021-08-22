@@ -148,7 +148,7 @@ async function getTweets(username){
   return data;
 }
 
-function SearchResult() {
+function SearchResult(props) {
   let history = useHistory();
   let [data, setData] = useState([
     {pic: 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350', 
@@ -212,7 +212,7 @@ function SearchResult() {
         {
           videoList.map((a,i)=>{
             return(
-              <Card data={data} video={a} i={i} length={videoList.length}></Card>
+              <Card setTargetId={props.setTargetId} data={data} video={a} i={i} length={videoList.length}></Card>
             )
           })
         }
@@ -246,7 +246,7 @@ function Card(props){
                 <div className="d-flex">
                     <div style={{height: 200, width : 300, backgroundColor: 'gray', marginRight: 16}}>{비디오.items[pos].title}</div>
                     <div style={{textAlign: 'left'}}>
-                        <div className="mb-2" style={{fontSize:18,color: '#030303'}} onClick={()=>{history.push('/video/'+비디오.items[pos].link)}}>{비디오.items[pos].title}</div>
+                        <div className="mb-2" style={{fontSize:18,color: '#030303'}} onClick={()=>{history.push('/video/'+비디오.items[pos].link);props.setTargetId(비디오.items[pos].link)}}>{비디오.items[pos].title}</div>
                         
                         
                         <div className="youtube-subdes mb-2">영상 설명</div>

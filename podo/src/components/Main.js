@@ -1,4 +1,5 @@
 
+import LoginImage from '../image/로그인이미지.png'
 
 function Main(props){
     let list = props.video;
@@ -6,16 +7,17 @@ function Main(props){
     let 카테고리변경 = props.setCategory;
     console.log(카테고리);
     return (
-        <div className="container">
-            
-            <div className="row" style={{paddingTop:24}}>
-                {
-                list.map((a,i)=>{
-                    return (
-                        <Card list={props.video} i={i}/>
-                        )
-                    })
-                }
+        <div className="row" style={{padding: '120px 0px'}}>
+            <div className="col-lg-6">
+                <h1 className="roboto" style={{fontSize:36,fontWeight:700}}>PODO와 함께 공부하세요.</h1>
+                <p className="mt-5 mb-5">
+                    공부에 유익한 다양한 유튜브컨텐츠를
+                    방해없이 즐겨보세요.
+                    </p>
+                    
+            </div>
+            <div className="col-lg-6">
+                <img src={LoginImage} style={{maxWidth:'100%'}}  alt="" />
             </div>
         </div>
         

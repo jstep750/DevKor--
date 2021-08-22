@@ -26,6 +26,7 @@ function App() {
     {video: '1',title:'my video',view: 123345, youtuber: '배연준',created:'3 months ago'},
     {video: '2',title:'my video2',view: 1233453, youtuber: '배연준',created:'4 months ago'},
   ]);
+  let [targetId,setTargetId]=useState('');
   let [중간, 중간변경]=useState([]);
   let 간이버튼 = () =>{
     let copy = [...중간];
@@ -146,14 +147,15 @@ function App() {
               <Play></Play>
             </Route>
             <Route exact path="/video">
-              <SearchResult search={search}></SearchResult>
+              <SearchResult search={search} targetId={targetId} setTargetId={setTargetId}></SearchResult>
             </Route>
             <Route exact path = "/mypage">
 
             </Route>
-            <Route exact path = "/video/:id">
-            {/* getVideoId = {getVideoId} */}
-              <Play></Play>
+            <Route exact path = "/video//:id">
+              
+            
+              <Play targetId={targetId}></Play>
             </Route>
           </Switch>
       </div>

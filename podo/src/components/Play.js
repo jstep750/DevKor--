@@ -5,7 +5,7 @@ import SmallCard from './SmallCard';
 import Trash from './Trash';
 import {useState,React} from 'react';
 
-function Play(){
+function Play(props){
     let [num, setnum] = useState(0)
     let [activeList,setActiveList] = useState(2);
     let [boardOne, setBoardOne] = useState([
@@ -38,12 +38,18 @@ function Play(){
         {id: 0, name: '재생목록1',videoid:[123,456,789]},
         {id: 1, name: '재생목록2',videoid:[1231,4564,7897]},
     ])
-
+    let watchid = props.targetId.split('v=')[1]
+    console.log(props.targetId);
+    console.log(watchid);
     return (
         <div className="container pt-5">
             <div className="row">
                 <div className="col-lg-7">
-                    <div className="youtube-video"></div>
+                    <iframe width="560" height="315" 
+                        src={"https://www.youtube.com/embed/"+watchid}
+                        title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+                        gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <div className="form-floating mt-3">
                   <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style={{height: 400}}></textarea>
                   <label for="floatingTextarea2">Comments</label>
