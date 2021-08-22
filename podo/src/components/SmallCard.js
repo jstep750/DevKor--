@@ -12,7 +12,7 @@ function SmallCard(props){
     }
 
     return (
-        <div className="row pb-2 mb-2" draggable={props.draggable} onDragStart={dragStart} onDragOver={dragOver} style={{minHeight: 55, borderBottom: '1px solid #c4c4c4'}}>
+        <div className="row pt-2 pb-2 mb-2 gray-on-hover" draggable={props.draggable} onDragStart={dragStart} onDragOver={dragOver} style={{minHeight: 55, borderBottom: '1px solid #c4c4c4'}}>
             <div className="col-6" style={{padding: '0px'}}>
                 <div className="youtube-video" ></div>
             </div>
