@@ -27,14 +27,13 @@ ReactDOM.render(
 reportWebVitals();
 
 var firebaseConfig = {
-  apiKey: "AIzaSyA0E-3mY4_qBgV7RfxEdzcU4B7xjJ74e-c",
-  authDomain: "enter-ef3a8.firebaseapp.com",
-  databaseURL: "https://enter-ef3a8-default-rtdb.firebaseio.com",
-  projectId: "enter-ef3a8",
-  storageBucket: "enter-ef3a8.appspot.com",
-  messagingSenderId: "505540008688",
-  appId: "1:505540008688:web:d3d89e4a7ac7ba57178035",
-  measurementId: "G-88XNV769FN"
+  apiKey: "AIzaSyAIClo7wQnXWdTCMQq5jsmGIu2fKvnEhq4",
+  authDomain: "hello-podo.firebaseapp.com",
+  projectId: "hello-podo",
+  storageBucket: "hello-podo.appspot.com",
+  messagingSenderId: "511816057818",
+  appId: "1:511816057818:web:fd0d70d96121f60054b6e3",
+  measurementId: "G-N5J1ZP0JPK"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -47,6 +46,17 @@ firebase.auth().getRedirectResult()
       // This gives you a Google Access Token. You can use it to access the Google API.
       var token = credential.accessToken;
       // ...
+      var user = result.user;
+      console.log("*"+user);
+      var db = firebase.firestore();
+      db.collection("user").doc(user.uid).set({
+          email: user.email,
+          signupMethod: "google"
+      }).then(function(){
+      }).catch(function(error) {
+          console.error("Error adding document: ", error);
+          alert(error.code+" / "+error.message);
+      });
     }
   }).catch((error) => {
     // Handle Errors here.
@@ -65,3 +75,15 @@ $(document).ready(function(){
         }
     });
 });
+
+//logout();
+
+function logout() {
+  firebase.auth().signOut().then(function() {
+    console.log("logout success");
+    // Sign-out successful.
+  }).catch(function(error) {
+    // An error happened.
+    console.log(error.code, error.message);
+  });
+}

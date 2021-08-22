@@ -1,5 +1,41 @@
 import { useState } from 'react';
 import Categoty from '../image/노트북추가이미지.png'
+import firebase from 'firebase'
+
+/*function checkIdExist(search){
+    var db = firebase.firestore();
+    var docRef = db.collection('tag').doc(search);
+  
+    docRef.get().then((doc) => {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+            return true;
+        } else {
+            db.collection('tag').doc(search).set({
+                get: getTweets()
+            }).then(function(){
+            }).catch(function(error) {
+                console.error("Error adding document: ", error);
+            });
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+        return false;
+    });  
+}*/
+
+/*async function getTweets(search){
+    const query = search ? `?username=${search}` : '';
+    const response = await fetch(`${this.baseURL}/video_yt${query}`, {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'}
+    });
+    const data = await response.json();
+    if(response.status != 200){
+      throw new Error(data.message);
+    }
+    return data;
+}*/
 
 
 function SetPlayList(props){
