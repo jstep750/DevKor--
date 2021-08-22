@@ -2,10 +2,10 @@ import {useState,React} from 'react';
 import { useHistory } from 'react-router-dom';
 import { Row } from 'react-bootstrap';
 
-function SearchResult() {
+function SearchResult(props) {
   let history = useHistory();
   // let [keyWordHighLight,setKeyWord] = useState(this.props.location.state.keyWordHighLight);
-  console.log(this.props.location.state.category);
+  // console.log(this.props.location.state.category);
   // let [category,setCategory]=useState([this.props.location.state.category]);
 
   let [data, setData] = useState([
