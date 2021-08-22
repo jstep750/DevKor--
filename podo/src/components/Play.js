@@ -51,7 +51,7 @@ function Play(){
                 </div>
                 <div className="col-lg-5" style={{textAlign:'left'}}>
                     <p className="pb-2">My 재생목록</p>
-                    <div className="playlist-draggable">{
+                    <div className="playlist-draggable" style={{paddingBottom:8}}>{
                             재생목록.map((a,i)=>{
                                 console.log(a.id);
                                 return (
@@ -59,7 +59,7 @@ function Play(){
                                 )
                             })
                         }
-                        <div onClick={activeList<10?()=>{
+                        <div className="gray-on-hover" onClick={activeList<10?()=>{
                             setActiveList(activeList+1)
                             let 이름 = prompt('새로 생성할 재생목록 이름을 생성해주세요');
                             if(이름 !== null){
@@ -69,7 +69,7 @@ function Play(){
                             copy.push({id: 아이디, name: 이름, videoid:[]});
                             재생목록변경([...copy])
                             }
-                        }:setActiveList(10)}><i class="fas fa-plus me-3 pt-1 pb-1"></i>새 재생목록 만들기</div>
+                        }:setActiveList(10)} style={{cursor:'pointer',padding: 10}}><i class="fas fa-plus me-3 pt-1 pb-1"></i>새 재생목록 만들기</div>
                     </div>
                     <div className="row mt-3">
                         <div className="col-6">

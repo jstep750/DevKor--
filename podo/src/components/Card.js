@@ -12,7 +12,7 @@ function Card(props){
     }
 
     return (
-        <div className="row pb-2 mb-2" draggable={props.draggable} onDragStart={dragStart} onDragOver={dragOver} style={{minHeight: 82, borderBottom: '1px solid #c4c4c4'}}>
+        <div className="row pt-2 pb-2 mb-2 gray-on-hover" draggable={props.draggable} onDragStart={dragStart} onDragOver={dragOver} style={{minHeight: 82, borderBottom: '1px solid #c4c4c4'}}>
             <div className="col-4">
                 <div className="youtube-video" style={{backgroundColor:'#BE9FE1',borderRadius: 5,position:'relative'}}>
                     <div className="youtube-arrow"><i style={{fontSize:24,color: 'white'}} class="fas fa-caret-right"></i></div>
