@@ -45,7 +45,7 @@ function Play(props){
         <div className="container pt-5">
             <div className="row">
                 <div className="col-lg-7">
-                    <iframe width="560" height="315" 
+                    <iframe width="100%" height="400" 
                         src={"https://www.youtube.com/embed/"+watchid}
                         title="YouTube video player" frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; 

@@ -1,5 +1,8 @@
 
 import LoginImage from '../image/로그인이미지.png'
+import Podo from '../image/Podologo.png'
+import block from '../image/Block.png';
+import Logo from '../image/Group 770.png';
 
 function Main(props){
     let list = props.video;
@@ -7,20 +10,27 @@ function Main(props){
     let 카테고리변경 = props.setCategory;
     console.log(카테고리);
     return (
-        <div className="row" style={{padding: '120px 0px'}}>
-            <div className="col-lg-6">
-                <h1 className="roboto" style={{fontSize:36,fontWeight:700}}>PODO와 함께 공부하세요.</h1>
-                <p className="mt-5 mb-5">
-                    공부에 유익한 다양한 유튜브컨텐츠를
-                    방해없이 즐겨보세요.
+        <>
+        
+        <div className="row container" style={{padding: '120px 0px',transform:'translateX(25%)'}}>
+            <div className="col-lg-6 d-flex flex-column justify-content-center">
+                <div className="">
+                <h1 className="roboto" style={{fontSize:72,lineHeight:'90px', fontWeight:700, textAlign:'left'}}>PODO와 함께<br/> 공부를 시작하세요.</h1>
+                <p className="mt-5 mb-5" style={{textAlign:'left',lineHeight:'30px'}}>
+                    PODO는 유튜브에서 공부에 방해되는 요소는 제거하고,<br/>
+                    공부에 도움을 줄 수 있는 기능을 추가한<br/>
+                    학습 목적의 영상 모음 웹사이트입니다.
                     </p>
+                </div>
+                
+                
                     
             </div>
-            <div className="col-lg-6">
-                <img src={LoginImage} style={{maxWidth:'100%'}}  alt="" />
+            <div className="col-lg-6" style={{position: 'relative'}}>
+                <img src={Logo} alt="" />
             </div>
         </div>
-        
+        </>
     )
 }
 

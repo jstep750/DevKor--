@@ -83,10 +83,13 @@ function App() {
   </div>
 </Navbar>
     <div className="container-fluid main-content">
-      <div className="container"style={{minHeight: '100vh'}}>
+      
           <Switch>
             <Route exact path="/">
+            <div className="container"style={{minHeight: '100vh'}}>
+
               <Login></Login>
+            </div>
             </Route>
             <Route exact path ="/main">
               {
@@ -144,21 +147,28 @@ function App() {
               }
             </Route>
             <Route exact path ="/playlist">
+            <div className="container"style={{minHeight: '100vh'}}>
               <Play></Play>
+            </div>
             </Route>
             <Route exact path="/video">
+            <div className="container"style={{minHeight: '100vh'}}>
+
               <SearchResult search={search} targetId={targetId} setTargetId={setTargetId}></SearchResult>
+            </div>
             </Route>
             <Route exact path = "/mypage">
 
             </Route>
             <Route exact path = "/video//:id">
               
-            
+            <div className="container"style={{minHeight: '100vh'}}>
+
               <Play targetId={targetId}></Play>
+            </div>
             </Route>
           </Switch>
-      </div>
+      
     </div>
     
     </div>
