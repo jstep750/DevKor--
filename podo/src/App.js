@@ -135,6 +135,7 @@ function App() {
                           )
                         })
                       }
+                       <button className="keyword-plus" onClick={()=>{let copy=[...category];copy.pop();setCategory([...copy])}}><i class="fas fa-minus"></i></button>
                     </div>
                     <Main video={video} setVideo={setVideo} category={category} setCategory={setCategory}></Main>
                   </>
